@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You've made it buddy"
+        />
+
+    <TextView
+        android:id="@+id/latTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="Insert latitude"
+        />
+    <EditText
+        android:id="@+id/latInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/longInput"
+        android:layout_alignBottom="@id/latTxt"
+        android:hint="Enter latitude "
+        />
+    <EditText
+        android:id="@+id/longInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/longTxt"
+        android:layout_alignBottom="@id/longTxt"
+        android:hint="Enter longitude"
+
+        />
+
+    <TextView
+        android:id="@+id/longTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latTxt"
+        android:layout_marginTop="20dp"
+        android:text="Insert longitude"
+        />
+
+    <Button
+        android:id="@+id/statnSrch"
+        android:layout_below="@id/longInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Stations"
+        />
+    <ListView
+        android:layout_below="@id/statnSrch"
+        android:id="@+id/stationList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        />
+
+</RelativeLayout>

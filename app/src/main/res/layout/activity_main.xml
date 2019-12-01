@@ -20,6 +20,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+    <!--So all of the layout stuff we're used to is in the include below, go to that file -->
     <include layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
