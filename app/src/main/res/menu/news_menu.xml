@@ -1,21 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.cst2335finalproject.MainActivity"
-    android:id="@+id/mainMenu">
+    tools:context="com.example.finalproject.news.NewsMainActivity">
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-
     <item
-        android:id="@+id/recipeItem"
-        android:title="Recipe"
-        android:icon="@drawable/recipe"
-        android:orderInCategory="1"
-        app:showAsAction="always"
-        android:visible="true"/>
-
-
+        android:id="@+id/newsMenu"
+        android:title="@string/help"
+        />
 </menu>
