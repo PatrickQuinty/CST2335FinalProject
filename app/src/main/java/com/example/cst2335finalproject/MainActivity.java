@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button patrickBtn = findViewById(R.id.landingPatrick);
+        Button saraBtn =findViewById(R.id.landingSaranja);
 
         if(patrickBtn != null)
         {
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
                     v -> {
                         Intent carChargerIntent = new Intent(MainActivity.this, FindCarCharger.class);
                         startActivity(carChargerIntent);}
+            );
+        }
+
+        if(saraBtn != null)
+        {
+            saraBtn.setOnClickListener(
+                    v -> {
+                        Intent newsIntent = new Intent(MainActivity.this, NewsMainActivity.class);
+                        startActivity(newsIntent);}
             );
         }
 
