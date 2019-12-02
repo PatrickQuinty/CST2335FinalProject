@@ -51,6 +51,8 @@ public class FindCarCharger extends AppCompatActivity {
         Button search = findViewById(R.id.statnSrch);
         EditText latitudeIn = findViewById(R.id.latInput),
         longitudeIn = findViewById(R.id.longInput);
+        latitudeIn.setText("45.347571");
+        longitudeIn.setText("-75.756140");
         searchLatitude = latitudeIn.getText().toString();
         searchLongitude = longitudeIn.getText().toString();
 
@@ -59,13 +61,7 @@ public class FindCarCharger extends AppCompatActivity {
         if(search != null)
         {
             search.setOnClickListener(
-                    v -> {
-                        //TODO add code to launch search
-                        new ChargingStationQuery().execute();
-
-
-                    }
-            );
+                    v -> new ChargingStationQuery().execute());
         }
     }
 
@@ -79,7 +75,7 @@ public class FindCarCharger extends AppCompatActivity {
 
         @Override
         public String[] getItem(int i) {
-            return stations.get(i).getStationInfo(); //TODO might need updating
+            return stations.get(i).getStationInfo();
         }
 
         @Override
@@ -89,7 +85,7 @@ public class FindCarCharger extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            View thisRow; //TODO remove null statement
+            View thisRow;
             thisRow = getLayoutInflater().inflate(R.layout.charge_station_row, null);
             TextView title = thisRow.findViewById(R.id.stationLocationTitle),
                     latitude = thisRow.findViewById(R.id.chargingLatitude),
@@ -107,7 +103,6 @@ public class FindCarCharger extends AppCompatActivity {
             {
                 directions.setOnClickListener(
                         v -> {
-                            //TODO add code to get directions
                             // Create a Uri from an intent string. Use the result to create an Intent.
                             String mapSearch = "google.navigation:q=" + data[2] + "," + data[3]
                                     + "&mode=d";
@@ -125,8 +120,6 @@ public class FindCarCharger extends AppCompatActivity {
                 );
             }
 
-            //TODO make a layout for a single station to show
-                //thisRow = getLayoutInflater().inflate(R.layout.lab4_msg_receive_relative, null);
 
             return thisRow;
         }
@@ -148,7 +141,7 @@ public class FindCarCharger extends AppCompatActivity {
                 String chargeQuery = "https://api.openchargemap.io/v3/poi/?output=json&latitude=" +
                         searchLatitude + "&longitude=" + //should be the latitude
                         searchLongitude + "&maxresults=10"; //should be the longitude
-                chargeQuery = "https://api.openchargemap.io/v3/poi/?output=json&latitude=45.347571&longitude=-75.756140&maxresults=10";
+//                chargeQuery = "https://api.openchargemap.io/v3/poi/?output=json&latitude=45.347571&longitude=-75.756140&maxresults=10";
                 URL chargingURL = new URL(chargeQuery);
                 HttpURLConnection chargingConnect = (HttpURLConnection)chargingURL.openConnection();
                 InputStream chargeInpStream = chargingConnect.getInputStream();
@@ -188,7 +181,6 @@ public class FindCarCharger extends AppCompatActivity {
             }
             return ret;
         }
-        //TODO fill in the class
 
 
         @Override
