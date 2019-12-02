@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // test push
         Button patrickBtn = findViewById(R.id.landingPatrick);
         Button saraBtn =findViewById(R.id.landingSaranja);
 
