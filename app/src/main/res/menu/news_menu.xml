@@ -10,6 +10,6 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/newsMenu"
-        android:title="@string/help"
+        android:title="@string/helpSrir"
         />
 </menu>
