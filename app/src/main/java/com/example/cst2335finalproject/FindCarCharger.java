@@ -1,6 +1,8 @@
 package com.example.cst2335finalproject;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -99,6 +101,29 @@ public class FindCarCharger extends AppCompatActivity {
             longitude.setText(data[3]);
             phone.setText(data[4]);
 
+            Button directions = thisRow.findViewById(R.id.chargingDirectionBtn);
+
+            if(directions != null)
+            {
+                directions.setOnClickListener(
+                        v -> {
+                            //TODO add code to get directions
+                            // Create a Uri from an intent string. Use the result to create an Intent.
+                            String mapSearch = "google.navigation:q=" + data[2] + "," + data[3]
+                                    + "&mode=d";
+                            Uri mapsIntentUri = Uri.parse(mapSearch);
+
+                            // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapsIntentUri);
+                            // Make the Intent explicit by setting the Google Maps package
+                            mapIntent.setPackage("com.google.android.apps.maps");
+
+                            // Attempt to start an activity that can handle the Intent
+                            startActivity(mapIntent);
+
+                        }
+                );
+            }
 
             //TODO make a layout for a single station to show
                 //thisRow = getLayoutInflater().inflate(R.layout.lab4_msg_receive_relative, null);
