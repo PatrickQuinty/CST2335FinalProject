@@ -22,8 +22,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // test push
         Button patrickBtn = findViewById(R.id.landingPatrick);
+
+        Button saraBtn =findViewById(R.id.landingSaranja);
+
         Button kiranBtn = findViewById(R.id.landingKiran);
+
 
         if(patrickBtn != null)
         {
@@ -38,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
                         Intent i = new Intent(MainActivity.this, Recipe.class);
                         startActivity(i);
             });
+        }
+
+        if(saraBtn != null)
+        {
+            saraBtn.setOnClickListener(
+                    v -> {
+                        Intent newsIntent = new Intent(MainActivity.this, NewsMainActivity.class);
+                        startActivity(newsIntent);}
+            );
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
