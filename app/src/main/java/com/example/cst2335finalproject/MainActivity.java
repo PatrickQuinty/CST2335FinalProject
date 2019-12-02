@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         // test push
         Button patrickBtn = findViewById(R.id.landingPatrick);
+
         Button saraBtn =findViewById(R.id.landingSaranja);
+
+        Button kiranBtn = findViewById(R.id.landingKiran);
+
 
         if(patrickBtn != null)
         {
@@ -33,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
                         Intent carChargerIntent = new Intent(MainActivity.this, FindCarCharger.class);
                         startActivity(carChargerIntent);}
             );
+        }
+        if(kiranBtn != null) {
+            kiranBtn.setOnClickListener(v -> {
+                        Intent i = new Intent(MainActivity.this, Recipe.class);
+                        startActivity(i);
+            });
         }
 
         if(saraBtn != null)
@@ -71,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if(item.getItemId() == R.id.recipeItem){
+            Intent i = new Intent(MainActivity.this, Recipe.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);

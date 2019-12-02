@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CST2335FinalProject</string>
     <string name="action_settings">Settings</string>
+
     <string name="news_search">News Search</string>
     <string name="news_saved">News Saved</string>
     <string name="news_view_in_browser">Browser</string>
@@ -23,5 +24,21 @@
         click delete button to delete the saved article</string>
     <string name="help_4">Click on save button to saved articles.</string>
     <string name="help">Help</string>
+
+
+
+    //Recipe strings
+    <string name="help">This is the Recipe Search Engine by Kiranjeet Kaur. Search and save recipes for Chicken and Lasagna!</string>
+    <string name="alert">Choose a dish!</string>
+    <string name="chicken">Chicken</string>
+    <string name="lasagna">Lasagna</string>
+    <string name="snackbar">RECIPE SAVED</string>
+    <string name="toast">Recipes deleted</string>
+    <string name="recipeTV">Recipe Search Engine</string>
+    <string name="recipeHint">Search for a recipe</string>
+    <string name="search">Search!</string>
+    <string name="save">Save recipes!</string>
+    <string name="fav">View saved recipes!</string>
+    <string name="delete">Delete recipes</string>
 
 </resources>
