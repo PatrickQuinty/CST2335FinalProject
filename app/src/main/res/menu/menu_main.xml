@@ -9,6 +9,27 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/recipeItem"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/recipe"
+        />
+
+    <item
+        android:id="@+id/newsItem"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@android:drawable/btn_radio"
+        />
+
+    <item
+        android:id="@+id/chargingItem"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_dialog_map"
+        />
+
 
 
 </menu>
