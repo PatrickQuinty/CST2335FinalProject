@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button kiranBtn = findViewById(R.id.landingKiran);
 
+        Button nickBtn = findViewById(R.id.landingNick);
 
         if(patrickBtn != null)
         {
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                     v -> {
                         Intent newsIntent = new Intent(MainActivity.this, NewsMainActivity.class);
                         startActivity(newsIntent);}
+            );
+        }
+
+        if(nickBtn != null)
+        {
+            saraBtn.setOnClickListener(
+                    v -> {
+                        Intent currencyIntent = new Intent(MainActivity.this, CurrencyMainActivity.class);
+                        startActivity(currencyIntent);}
             );
         }
 
