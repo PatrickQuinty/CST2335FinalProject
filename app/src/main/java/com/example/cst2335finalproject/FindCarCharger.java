@@ -1,6 +1,8 @@
 package com.example.cst2335finalproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -116,6 +118,19 @@ public class FindCarCharger extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+
+
+        SharedPreferences shared = getSharedPreferences("sharedSave", Context.MODE_PRIVATE);
+        SharedPreferences.Editor sharedEdit = shared.edit();
+        sharedEdit.putString("latitude", searchLatitude);
+        sharedEdit.putString("latitude", searchLongitude);
+        sharedEdit.commit();
     }
 
     private class StationAdapter extends BaseAdapter
