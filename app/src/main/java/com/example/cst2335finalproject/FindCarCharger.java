@@ -74,11 +74,9 @@ public class FindCarCharger extends AppCompatActivity {
         longitudeIn = findViewById(R.id.longInput);
         latitudeIn.setText("45.347571");
         longitudeIn.setText("-75.756140");
-        searchLatitude = latitudeIn.getText().toString();
-        searchLongitude = longitudeIn.getText().toString();
 
-        savedLatitude = searchLatitude;//TODO these are wrong, make a sharedPreferences
-        savedLongitude = searchLongitude;
+        //savedLatitude = searchLatitude;//TODO these are wrong, make a sharedPreferences
+        //savedLongitude = searchLongitude;
 
 
 
@@ -87,7 +85,13 @@ public class FindCarCharger extends AppCompatActivity {
         if(search != null)
         {
             search.setOnClickListener(
-                    v -> new ChargingStationQuery().execute());
+                    v ->
+                    {
+
+                        searchLatitude = latitudeIn.getText().toString();
+                        searchLongitude = longitudeIn.getText().toString();
+                        new ChargingStationQuery().execute();
+                    });
 
         }
     }
