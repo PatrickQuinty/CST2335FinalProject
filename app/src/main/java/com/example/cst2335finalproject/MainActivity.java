@@ -22,7 +22,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // test push
         Button patrickBtn = findViewById(R.id.landingPatrick);
+
+        Button saraBtn =findViewById(R.id.landingSaranja);
+
+        Button kiranBtn = findViewById(R.id.landingKiran);
+
 
         if(patrickBtn != null)
         {
@@ -30,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
                     v -> {
                         Intent carChargerIntent = new Intent(MainActivity.this, FindCarCharger.class);
                         startActivity(carChargerIntent);}
+            );
+        }
+        if(kiranBtn != null) {
+            kiranBtn.setOnClickListener(v -> {
+                        Intent i = new Intent(MainActivity.this, Recipe.class);
+                        startActivity(i);
+            });
+        }
+
+        if(saraBtn != null)
+        {
+            saraBtn.setOnClickListener(
+                    v -> {
+                        Intent newsIntent = new Intent(MainActivity.this, NewsMainActivity.class);
+                        startActivity(newsIntent);}
             );
         }
 
@@ -60,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if(item.getItemId() == R.id.recipeItem){
+            Intent i = new Intent(MainActivity.this, Recipe.class);
+            startActivity(i);
+        }
+        else if (item.getItemId() == R.id.chargingItem)
+        {
+            Intent i = new Intent(MainActivity.this, FindCarCharger.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);

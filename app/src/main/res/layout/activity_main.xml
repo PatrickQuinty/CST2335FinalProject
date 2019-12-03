@@ -22,7 +22,9 @@
 
 
     <!--So all of the layout stuff we're used to is in the include below, go to that file -->
-    <include layout="@layout/content_main" />
+    <include
+        android:id="@+id/contentMain"
+        layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

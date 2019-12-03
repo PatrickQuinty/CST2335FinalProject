@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/chargeRowLin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+    <TextView
+        android:id="@+id/stationLocationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Automated Import"
+        />
+    <Button
+        android:id="@+id/chargingDirectionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stationLocationTitle"
+        android:text="Get Directions"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chargeRowLin2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/chargeRowLin1">
+    <TextView
+        android:id="@+id/chargingLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Latitude: "
+        />
+
+    <TextView
+        android:id="@+id/chargingLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Longitude: "
+        />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/chargeStationPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="613-999-9999"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/chargeRowLin1"
+        />
+
+</RelativeLayout>
