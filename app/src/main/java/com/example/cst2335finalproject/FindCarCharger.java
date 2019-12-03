@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -12,9 +15,14 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,12 +39,16 @@ import java.util.ArrayList;
 
 public class FindCarCharger extends AppCompatActivity {
 
+    ProgressBar progress;
     ArrayList<ChargingStation> stations = new ArrayList<>();
     ListView stationView;
     BaseAdapter stationAdapter;
     CarDBOpenHelper dbOpener = new CarDBOpenHelper(this);
     SQLiteDatabase db;
-    String searchLatitude, searchLongitude;
+    String searchLatitude, searchLongitude,
+    savedLatitude, savedLongitude;
+    Toolbar toolbar;
+    Snackbar sb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +58,14 @@ public class FindCarCharger extends AppCompatActivity {
         //TODO uncomment this once you are fairly confident the database has what it needs in it
         //db = dbOpener.getWritableDatabase();
 
+        toolbar = findViewById(R.id.chargeToolBar);
 
+//        setSupportActionBar(toolbar);
+        sb = Snackbar.make(toolbar, "Return to main menu?", Snackbar.LENGTH_LONG)
+                .setAction("Go Back", e -> finish());
+
+        progress = findViewById(R.id.chargeStnProgress);
+        progress.setVisibility(View.VISIBLE);
         stationView = findViewById(R.id.stationList);
         Button search = findViewById(R.id.statnSrch);
         EditText latitudeIn = findViewById(R.id.latInput),
@@ -56,13 +75,47 @@ public class FindCarCharger extends AppCompatActivity {
         searchLatitude = latitudeIn.getText().toString();
         searchLongitude = longitudeIn.getText().toString();
 
+        savedLatitude = searchLatitude;//TODO these are wrong, make a sharedPreferences
+        savedLongitude = searchLongitude;
+
+
+
 
 
         if(search != null)
         {
             search.setOnClickListener(
                     v -> new ChargingStationQuery().execute());
+
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.charger_menu, menu);
+
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId())
+        {
+            //what to do when the menu item is selected:
+            case R.id.chargeRecentSearch:
+                searchLatitude = savedLatitude;
+                searchLongitude = savedLongitude;
+                stations.clear();
+                new ChargingStationQuery().execute();
+                break;
+            case R.id.chargeGoBack:
+
+                sb.show();
+                break;
+        }
+        return true;
     }
 
     private class StationAdapter extends BaseAdapter
@@ -171,6 +224,8 @@ public class FindCarCharger extends AppCompatActivity {
                     phone[i] = address.getString("ContactTelephone1");
                     else
                         phone[i] = "No phone number available";
+
+                    publishProgress(i*100/jsonArr.length());
                 }
 
             }
@@ -183,6 +238,13 @@ public class FindCarCharger extends AppCompatActivity {
         }
 
 
+        @Override                       //Type 2
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            progress.setVisibility(View.VISIBLE);
+            progress.setProgress(values[0]);
+        }
+
         @Override
         protected void onPostExecute(String fromDoInBackground) {
             super.onPostExecute(fromDoInBackground);
@@ -192,6 +254,9 @@ public class FindCarCharger extends AppCompatActivity {
             }
             stationView.setAdapter(stationAdapter = new StationAdapter());
             stationView.setVisibility(View.VISIBLE);
+            progress.setVisibility(View.INVISIBLE);
+            String toastText = "Found " + stations.size() + " charging stations near you";
+            Toast.makeText(FindCarCharger.this, toastText, Toast.LENGTH_LONG).show();
         }
     }
 

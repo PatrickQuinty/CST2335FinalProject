@@ -87,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(MainActivity.this, Recipe.class);
             startActivity(i);
         }
+        else if (item.getItemId() == R.id.chargingItem)
+        {
+            Intent i = new Intent(MainActivity.this, FindCarCharger.class);
+            startActivity(i);
+        }
 
         return super.onOptionsItemSelected(item);
     }

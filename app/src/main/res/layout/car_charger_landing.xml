@@ -5,11 +5,16 @@
     android:layout_height="match_parent">
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chargeToolBar"
+        />
     <TextView
         android:id="@+id/latTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/chargeToolBar"
         android:layout_marginTop="20dp"
         android:text="Insert latitude"
         />
@@ -47,8 +52,17 @@
         android:layout_height="wrap_content"
         android:text="Find Stations"
         />
-    <ListView
+    <ProgressBar
+        android:id="@+id/chargeStnProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_below="@id/statnSrch"
+        android:layout_marginTop="30dp"
+        />
+    <ListView
+        android:layout_below="@id/chargeStnProgress"
         android:id="@+id/stationList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
