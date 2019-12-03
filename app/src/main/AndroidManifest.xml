@@ -3,6 +3,10 @@
     package="com.example.cst2335finalproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -16,6 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RecipeFavourites"></activity>
+        <activity android:name=".Recipe" />
+        <activity android:name=".CurrencyMainActivity"></activity>
+        <activity android:name=".CurrencyConversionActivity"></activity>
 
         <activity android:name=".RecipeFavourites"></activity>
         <activity android:name=".Recipe" />
