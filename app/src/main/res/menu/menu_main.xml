@@ -9,30 +9,6 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/recipeItem"
-        android:title="Recipe"
-        android:icon="@drawable/recipe"
-        android:orderInCategory="1"
-        app:showAsAction="always"
-        android:visible="true"/>
-
-    <item
-        android:id="@+id/chargingItem"
-        android:title="Charging Station Finder"
-        android:icon="@android:drawable/ic_dialog_map"
-        android:orderInCategory="2"
-        app:showAsAction="always"
-        android:visible="true"/>
-
-    <item
-        android:id="@+id/newsItem"
-        android:title="News"
-        android:icon="@android:drawable/btn_radio"
-        android:orderInCategory="3"
-        app:showAsAction="always"
-        android:visible="true"
-        />
 
 
 </menu>
