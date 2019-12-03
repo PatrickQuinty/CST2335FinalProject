@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(nickBtn != null)
         {
-            saraBtn.setOnClickListener(
+            nickBtn.setOnClickListener(
                     v -> {
                         Intent currencyIntent = new Intent(MainActivity.this, CurrencyMainActivity.class);
                         startActivity(currencyIntent);}
@@ -100,6 +100,16 @@ public class MainActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.chargingItem)
         {
             Intent i = new Intent(MainActivity.this, FindCarCharger.class);
+            startActivity(i);
+        }
+        else if (item.getItemId() == R.id.newsItem)
+        {
+            Intent i = new Intent(MainActivity.this, NewsMainActivity.class);
+            startActivity(i);
+        }
+        else if (item.getItemId() == R.id.currencyItem)
+        {
+            Intent i = new Intent(MainActivity.this, CurrencyMainActivity.class);
             startActivity(i);
         }
 

@@ -30,6 +30,13 @@
         android:icon="@android:drawable/ic_dialog_map"
         />
 
+    <item
+        android:id="@+id/currencyItem"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@android:drawable/star_on"
+        />
+
 
 
 </menu>
